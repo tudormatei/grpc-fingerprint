@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package fingerprint;
+
+// The fingerprint generation service definition.
+service Fingerprinter {
+	// Unary
+	rpc GenerateOne (PrintRequest) returns (Fingerprint);
+
+	// // Server Streaming
+	// rpc ParrotSaysHello (HelloRequest) returns (stream HelloReply);
+}
+
+// The request message containing the user's token.
+message PrintRequest {
+  	string token = 1;
+}
+
+// The response message containing the fingerprint images.
+message Fingerprint {
+	bytes image_data = 1;
+}
+
